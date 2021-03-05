@@ -1,0 +1,101 @@
+<html>
+    <head>
+        <script src="assets/js/vendor/jquery-1.12.4.min.js"></script>
+        <style>
+            .invalid-tooltip{
+              border: 5px solid red;
+            }
+            .valid-tooltip{
+              border : 5px solid green;
+            }
+          </style>
+    </head>
+    <body>
+        <form>
+            <input type="text" id="FirstName" />
+        </form>
+    </body>
+    <script>
+       
+
+        
+      </script>
+
+    <script>
+    $(document).ready(function(){
+       $(document).bind("contextmenu",function(e){
+          return false;
+       });
+    });
+    </script>
+    <script>
+      function myFun(){
+     var FirstName=document.getElementById('FirstName').value;
+     var LastName=document.getElementById('LastName').value;
+     var Email=document.getElementById('email').value;
+     var MobileNo=document.getElementById('number').value;
+     
+       var pattern1="^[a-zA-Z]+$";
+       var reg1= new RegExp(pattern1);
+       var pattern2="^[a-zA-Z]+$";
+       var reg2= new RegExp(pattern2);
+       var pattern3="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"; 
+       var reg3 = new RegExp(pattern3);
+       var pattern4="^[0-9]{10}$"; 
+       var reg4 = new RegExp(pattern4);
+       var fname = -1;
+       var lname = -1;
+       var email1 = -1;
+       var mobile1=-1;
+        
+       $( document ).ready(function() {
+          $( "#FirstName" ).keyup(function() {
+            var fn = $('#FirstName').val();
+            if(reg1.test(FirstName)){
+              fname=1;
+              $('#FirstName').removeClass('invalid-tooltip');
+              $('#FirstName').addClass('valid-tooltip');
+            }
+            else{
+              $('#FirstName').addClass('valid-tooltip')
+              $('#FirstName').removeClass('invalid-tooltip')
+            }
+          });
+        });
+
+   
+       
+    if(reg2.test(LastName))
+       {
+             lname = 1;
+       }
+     else
+       {
+         document.getElementById('errLastName').innerHTML="Please Enter Valid LastName.";
+       }
+ 
+       if(reg3.test(Email))
+       {
+             email1 = 1;
+       }
+     else
+       {
+         document.getElementById('errEmail').innerHTML="Please Enter Valid Email.";
+       }
+ 
+       if(reg4.test(MobileNo))
+       {
+        mobile1=1;
+       }
+     else
+       {
+         document.getElementById('errMobile').innerHTML="Please Enter Valid Mobile No.";
+       }
+
+       if(fname==1 && lname ==1 && email1 == 1 &&  mobile1==1)
+      {
+        swal ( "Success" , "Data Entry Sucessfully  ", "success");
+      }
+  }
+    </script>
+</html>

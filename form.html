@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<head>
+  <script src="assets/js/vendor/jquery-1.12.4.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js">
+   <link rel="stylesheet" href="_variable.scss">
+
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js">
+       <link rel="stylesheet" href="_variables.scss">
+       <title>Document Title</title>
+    <style>
+      .invalid-tooltip{
+        border: 1px solid red;
+      }
+      .valid-tooltip{
+        border : 1px solid green;
+      }
+    </style>
+   </head>
+   <body>
+       <div class="container">
+           <form class="row g-3 needs-validation" novalidate>
+               <div class="col-md-4">
+                 <label  class="form-label">First name</label>
+                 <input type="text" class="form-control" id="FirstName"  required>
+                 <div class="valid-feedback">
+                   Looks good!
+                 </div>
+               </div>
+               <div class="col-md-4">
+                 <label for="validationCustom02" class="form-label">Last name</label>
+                 <input type="text" class="form-control" id="validationCustom02" required>
+                 <div class="valid-feedback">
+                   Looks good!
+                 </div>
+               </div>
+               <div class="col-md-4">
+                 <label  class="form-label">Email </label>
+                 <div class="input-group">
+                  
+                   <input type="text" class="form-control" aria-describedby="inputGroupPrepend" required>
+                   <div class="invalid-feedback">
+                     Please choose a username.
+                   </div>
+                 </div>
+               </div>
+               <div class="col-md-6">
+                 <label class="form-label">City</label>
+                 <input type="text" class="form-control"  required>
+                 <div class="invalid-feedback">
+                   Please provide a valid city.
+                 </div>
+               </div>
+              
+               <div class="col-md-3">
+                 <label  class="form-label">Zip</label>
+                 <input type="text" class="form-control" required>
+                 <div class="invalid-feedback">
+                   Please provide a valid zip.
+                 </div>
+               </div>
+               <div class="col-12">
+                 <div class="form-check">
+                   <input class="form-check-input" type="checkbox"  required>
+                   <label class="form-check-label" for="invalidCheck">
+                     Agree to terms and conditions
+                   </label>
+                   <div class="invalid-feedback">
+                     You must agree before submitting.
+                   </div>
+                 </div>
+               </div>
+               <div class="col-12">
+                 <button class="btn btn-primary" type="submit">Submit form</button>
+               </div>
+             </form>
+       </div>
+      <script src="js/tut2.js"></script>
+      <script src="js/tut6.js"></script>
+      
+  
+      <script>
+          // Example starter JavaScript for disabling form submissions if there are invalid fields
+   (function () {
+    
+   
+     // Fetch all the forms we want to apply custom Bootstrap validation styles to
+     var forms = document.querySelectorAll('.needs-validation')
+   
+     // Loop over them and prevent submission
+     Array.prototype.slice.call(forms)
+       .forEach(function (form) {
+         form.addEventListener('submit', function (event) {
+           if (!form.checkValidity()) {
+             event.preventDefault()
+             event.stopPropagation()
+           }
+           form.classList.add('was-validated')
+         }, false)
+       })
+   })()
+      </script>
+
+<script>
+       
+
+  $( document ).ready(function() {
+    $( "#FirstName" ).keyup(function() {
+      var fn = $('#FirstName').val();
+      if(fn=='arjun'){
+        $('FirstName').removeClass('invalid-tooltip')
+        $('FirstName').addClass('valid-tooltip')
+      }
+      else{
+        $('FirstName').addClass('valid-tooltip')
+        $('FirstName').removeClass('invalid-tooltip')
+      }
+    });
+  });
+</script>
+     
+   </body>
+   </html>
